@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Camera, Leaf, Scale } from "lucide-react"
+import logo from "./public/Image/placeholder.svg"
 
 export default function Home() {
   return (
@@ -35,7 +36,7 @@ export default function Home() {
             </div>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?height=400&width=400"
+                src={logo}
                 alt="Plastic bottles illustration"
                 width={400}
                 height={400}

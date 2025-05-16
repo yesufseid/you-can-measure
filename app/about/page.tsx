@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Mail, Phone } from "lucide-react"
+import logo from "../public/Image/youcan-white.svg"
 
 export default function AboutPage() {
   return (
@@ -14,7 +15,7 @@ export default function AboutPage() {
           <h2>Introduction</h2>
           <div className="flex flex-col md:flex-row gap-6 items-center mb-6">
             <Image
-              src="/placeholder.svg?height=200&width=200"
+              src={logo}
               alt="Seid Yesuf"
               width={200}
               height={200}
@@ -22,32 +23,25 @@ export default function AboutPage() {
             />
             <div>
               <p>
-                My name is Seid Yesuf. I am an Environmental Engineering student at AASTU and a self-taught web
-                developer. On Wednesday, April 10, 2025, during the launch event of the Environmental Engineering
-                Students Association at AASTU, You-can—a company involved in solid waste recycling—gave a presentation
-                about their work and the challenges they face.
+               Youcan Company is an Ethiopian startup that focuses on sustainable waste management 
+               and recycling. The company is known for its innovative approach to turning solid 
+               waste into valuable resources, promoting environmental protection and circular economy principles.
+                Youcan actively works with communities, schools, and local businesses to raise awareness about waste
+                 segregation and proper disposal practices..
               </p>
             </div>
           </div>
 
           <p>
-            One key issue they mentioned was that many household-level customers struggle to measure the amount of
-            plastic waste they generate. This lack of proper measurement makes it difficult for individuals to
-            contribute meaningfully to waste segregation, reporting, and recycling efforts.
+            In addition to recycling, Youcan develops solutions that make waste
+             handling more efficient, including educational programs and technology-based tools. 
+             Their goal is to reduce pollution, create green jobs, and contribute to a cleaner, 
+             healthier environment in Ethiopia. Youcan’s initiatives reflect a strong 
+            commitment to social impact, environmental responsibility, and sustainable development.
           </p>
 
-          <p>
-            As a response to this real-world challenge, I was motivated to build the You-can measure waste measurement
-            website - a simple, accessible tool that allows users to estimate the weight of their segregated waste based
-            on either item count or volume estimation through photos.
-          </p>
 
-          <p>
-            By providing this tool, the platform helps bridge the gap between households and recycling services like
-            You-can, making it easier to track, estimate, and report plastic and other solid waste accurately.
-          </p>
-
-          <h2>How the You-can Measure Website Works</h2>
+          <h2 className="my-2  ">How the You-can Measure Website Works</h2>
 
           <p>
             The You-can Measure platform is designed to help waste generators measure and report segregated solid waste
@@ -95,14 +89,6 @@ export default function AboutPage() {
 
           <h2>Contact and Collaboration</h2>
 
-          <p>
-            I am open to working together on this project and exploring ways to improve household-level plastic waste
-            measurement and recycling. You can visit the website here:{" "}
-            <a href="https://you-can-blush.vercel.app" className="text-green-600 hover:underline">
-              https://you-can-blush.vercel.app
-            </a>
-            .
-          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Card className="flex-1">
