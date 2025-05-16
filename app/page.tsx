@@ -2,14 +2,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Camera, Leaf, Scale } from "lucide-react"
-import logo from "./public/Image/placeholder.svg"
+import logo from "./public/Image/Leonardo_Phoenix_10_A_clean_and_modern_landing_page_illustrati_2.jpg"
+import Footer from "@/components/footer"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-green-50 to-white dark:from-green-950 dark:to-background">
-        <div className="container px-4 md:px-6">
+      <section className="w-full py-12  bg-gradient-to-b from-green-50 to-white dark:from-green-950 dark:to-background">
+        <div className="container px-4 md:px-20 ">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
@@ -34,11 +35,11 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-end">
               <Image
                 src={logo}
                 alt="Plastic bottles illustration"
-                width={400}
+                width={450}
                 height={400}
                 className="rounded-lg object-cover"
               />
@@ -114,27 +115,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full py-6 md:py-12 border-t">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex flex-col gap-1">
-              <p className="text-sm text-muted-foreground">© 2025 You-can Measure. Created by Seid Yesuf.</p>
-              <p className="text-xs text-muted-foreground">Contact: seidyesuf750@gmail.com | Phone: 0960417946</p>
-            </div>
-            <div className="flex gap-4">
-              <Link href="/about" className="text-sm text-muted-foreground hover:underline">
-                About
-              </Link>
-              <Link href="/contact" className="text-sm text-muted-foreground hover:underline">
-                Contact
-              </Link>
-              <Link href="/privacy" className="text-sm text-muted-foreground hover:underline">
-                Privacy
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+     <Footer />
     </div>
   )
 }

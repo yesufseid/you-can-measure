@@ -117,8 +117,8 @@ export default function MeasurePage() {
       <Tabs defaultValue="manual" className="w-full">
         <TabsList className="grid w-full grid-cols-3 mb-8">
           <TabsTrigger value="manual">Manual Count</TabsTrigger>
-          <TabsTrigger value="ai">AI Measurement</TabsTrigger>
-          <TabsTrigger value="add">Add New Category</TabsTrigger>
+          <TabsTrigger value="ai">Use AI</TabsTrigger>
+          <TabsTrigger value="add">Add Category</TabsTrigger>
         </TabsList>
 
         {/* Manual Count Tab */}

@@ -16,10 +16,10 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row gap-6 items-center mb-6">
             <Image
               src={logo}
-              alt="Seid Yesuf"
+              alt="logo"
               width={200}
               height={200}
-              className="rounded-full object-cover"
+              className="rounded-full object-cover bg-black p-5"
             />
             <div>
               <p>
