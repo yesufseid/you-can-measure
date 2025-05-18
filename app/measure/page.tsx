@@ -16,6 +16,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../Redux/store";
 import { detectObjects, loadModel } from "../../utils/tensorflow";
+import AddCategory from "@/components/AddCategory"
 
 
 interface CategoryProps {
@@ -101,14 +102,7 @@ export default function MeasurePage() {
     }
   }
 
-  const handleAddNewCategory = () => {
-    if (newCategory.name && newCategory.weight > 0) {
-      const newId = wasteTypes.length + 1
-      // In a real app, you would save this to your database
-      alert(`New category "${newCategory.name}" added successfully!`)
-      setNewCategory({ name: "", weight: 0 })
-    }
-  }
+ 
 
   return (
     <div className="container py-8 px-4 md:px-6">
@@ -145,7 +139,7 @@ export default function MeasurePage() {
                           </div>
                           <div className="flex-1">
                             <h3 className="font-medium">{item.name}</h3>
-                            <p className="text-sm text-muted-foreground">{item.mass} kg per item</p>
+                            <p className="text-sm text-muted-foreground">{item.mass} g per item</p>
                           </div>
                           <Button variant="outline" size="sm" onClick={() => handleAddItem(item)} className="ml-auto">
                             <Plus className="h-4 w-4 mr-1" /> Add
@@ -175,7 +169,7 @@ export default function MeasurePage() {
                         <div key={item.id} className="flex items-center justify-between border-b pb-3">
                           <div>
                             <p className="font-medium">{item.name}</p>
-                            <p className="text-sm text-muted-foreground">{item.mass} kg each</p>
+                            <p className="text-sm text-muted-foreground">{item.mass} g each</p>
                           </div>
                           <div className="flex items-center gap-2">
                             <Input
@@ -203,7 +197,7 @@ export default function MeasurePage() {
                 </div>
                 <div className="flex justify-between w-full">
                   <span className="font-bold text-lg">Total Weight:</span>
-                  <Badge className="text-lg bg-green-600">{totalWeight} kg</Badge>
+                  <Badge className="text-lg bg-green-600">{totalWeight} g</Badge>
                 </div>
               </CardFooter>
             </Card>
@@ -287,7 +281,7 @@ export default function MeasurePage() {
 
                         <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
                           <span className="font-medium">Estimated Weight:</span>
-                          <Badge className="text-lg bg-green-600">{aiResult.weight} kg</Badge>
+                          <Badge className="text-lg bg-green-600">{aiResult.weight}g</Badge>
                         </div>
                       </div>
 
@@ -310,79 +304,7 @@ export default function MeasurePage() {
 
         {/* Add New Category Tab */}
         <TabsContent value="add">
-          <Card>
-            <CardHeader>
-              <CardTitle>Add New Waste Category</CardTitle>
-              <CardDescription>Create a custom waste category with specific weight information</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="category-name">Category Name</Label>
-                    <Input
-                      id="category-name"
-                      placeholder="e.g., Plastic Yogurt Container"
-                      value={newCategory.name}
-                      onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="category-weight">Weight per Item (kg)</Label>
-                    <Input
-                      id="category-weight"
-                      type="number"
-                      step="0.001"
-                      placeholder="e.g., 0.025"
-                      value={newCategory.weight || ""}
-                      onChange={(e) =>
-                        setNewCategory({ ...newCategory, weight: Number.parseFloat(e.target.value) || 0 })
-                      }
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="category-image">Category Image</Label>
-                    <div className="border-2 border-dashed rounded-lg p-4 text-center">
-                      <Label htmlFor="category-image-upload" className="cursor-pointer">
-                        <div className="flex flex-col items-center justify-center">
-                          <Upload className="h-8 w-8 text-muted-foreground mb-2" />
-                          <span className="text-sm text-muted-foreground">Click to upload an image</span>
-                        </div>
-                        <Input id="category-image-upload" type="file" accept="image/*" className="hidden" />
-                      </Label>
-                    </div>
-                  </div>
-
-                  <Button
-                    className="w-full mt-4 bg-green-600 hover:bg-green-700"
-                    onClick={handleAddNewCategory}
-                    disabled={!newCategory.name || newCategory.weight <= 0}
-                  >
-                    <Plus className="mr-2 h-4 w-4" /> Add New Category
-                  </Button>
-                </div>
-
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium mb-4">Why Add Custom Categories?</h3>
-                  <p className="text-muted-foreground mb-4">Adding custom waste categories helps you:</p>
-                  <ul className="space-y-2 list-disc pl-5 text-muted-foreground">
-                    <li>Track specific types of plastic waste unique to your household or business</li>
-                    <li>Get more accurate weight measurements for unusual items</li>
-                    <li>Contribute to our growing database of plastic waste types</li>
-                    <li>Better organize your recycling efforts</li>
-                  </ul>
-
-                  <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-100">
-                    <p className="text-sm text-green-800">
-                      Your custom categories will be saved to your account and available for future measurements.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+         <AddCategory />
         </TabsContent>
       </Tabs>
     </div>
